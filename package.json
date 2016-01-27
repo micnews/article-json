@@ -1,0 +1,24 @@
+{
+  "name": "article-json",
+  "version": "0.0.0",
+  "description": "json format describing articles",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/micnews/article-json.git"
+  },
+  "author": "mic.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/micnews/article-json/issues"
+  },
+  "homepage": "https://github.com/micnews/article-json#readme",
+  "devDependencies": {
+    "ava": "^0.11.0",
+    "semistandard": "^7.0.5",
+    "snazzy": "^2.0.1"
+  }
+}
