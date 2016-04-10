@@ -2,9 +2,12 @@
   "name": "article-json",
   "version": "0.0.0",
   "description": "json format describing articles",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "ava"
+    "build": "rm -rf dist && mkdir -p dist && babel lib --out-dir dist",
+    "test": "ava",
+    "prepublish": "npm run build",
+    "watch": "rm -rf dist && mkdir -p dist && babel -w lib --out-dir dist"
   },
   "repository": {
     "type": "git",
@@ -17,8 +20,18 @@
   },
   "homepage": "https://github.com/micnews/article-json#readme",
   "devDependencies": {
-    "ava": "^0.11.0",
+    "ava": "^0.14.0",
+    "babel-cli": "^6.7.5",
+    "babel-core": "^6.7.6",
+    "babel-preset-es2015": "^6.6.0",
+    "lodash.omit": "^4.2.0",
     "semistandard": "^7.0.5",
     "snazzy": "^2.0.1"
+  },
+  "dependencies": {
+    "is-my-json-valid": "^2.12.4"
+  },
+  "directories": {
+    "test": "test"
   }
 }
