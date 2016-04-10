@@ -45,8 +45,13 @@ test('facebook post embed, extra properties', t => {
     url: 'https://www.facebook.com/david.bjorklund/posts/10153809692501070',
     extra: true
   }];
-  const expected = input;
-  const actual = filter(input);
+  const expected = {
+    type: 'embed',
+    embedType: 'facebook',
+    embedAs: 'post',
+    url: 'https://www.facebook.com/david.bjorklund/posts/10153809692501070'
+  };
+  const actual = filter(input)[0];
   const valid = validate(input);
 
   t.deepEqual(actual, expected);
@@ -84,6 +89,28 @@ test('facebook video embed, check required', t => {
   });
 });
 
+test('facebook video embed, extra properties', t => {
+  const input = [{
+    type: 'embed',
+    embedType: 'facebook',
+    embedAs: 'video',
+    url: 'https://www.facebook.com/MicMedia/videos/1060315987324524',
+    extra: true
+  }];
+  const expected = {
+    type: 'embed',
+    embedType: 'facebook',
+    embedAs: 'video',
+    url: 'https://www.facebook.com/MicMedia/videos/1060315987324524'
+  };
+
+  const actual = filter(input)[0];
+  const valid = validate(input);
+
+  t.deepEqual(actual, expected);
+  t.truthy(valid);
+});
+
 test('facebook unknown embed', t => {
   const input = [{
     type: 'embed',
@@ -92,7 +119,6 @@ test('facebook unknown embed', t => {
     url: 'https://www.facebook.com/MicMedia/videos/1060315987324524'
   }];
 
-  const expected = [];
   const valid = validate(input);
 
   t.falsy(valid);

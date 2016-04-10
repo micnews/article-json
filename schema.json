@@ -18,7 +18,8 @@
         "embedType": {"enum": ["facebook"], "required": true},
         "embedAs": {"enum": ["post", "video"], "required": true},
         "url": {"format": "uri", "required": true}
-      }
+      },
+      "additionalProperties": false
     }
   }
 }
