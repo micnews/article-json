@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "article-json schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "oneOf": [
+      {"$ref": "#/definitions/facebook"}
+    ],
+    "required": true
+  },
+  "definitions": {
+    "facebook": {
+      "title": "Facebook embed",
+      "type": "object",
+      "properties": {
+        "type": {"enum": ["embed"], "required": true},
+        "embedType": {"enum": ["facebook"], "required": true},
+        "embedAs": {"enum": ["post", "video"], "required": true},
+        "url": {"format": "uri", "required": true}
+      },
+      "additionalProperties": false
+    }
+  }
+}
